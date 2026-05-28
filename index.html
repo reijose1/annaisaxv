@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis 15 Años · Anna Isabella</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- PRE-LOADER -->
+    <div id="preloader" onclick="abrirInvitacion()">
+      <div class="petal-shower" id="petals"></div>
+      <div class="sobre-wrapper">
+        <div class="sobre-solapa"></div>
+        <div class="sobre-body">
+          <div class="sobre-crown">👑</div>
+          <div class="sobre-title">Mis 15 Años</div>
+          <div class="sobre-name">Isabella Carrillo</div>
+          <div class="sobre-date">11 de Julio de 2026</div>
+          <div class="sobre-seats">
+            ✦ Tenemos reservados para ti 2 lugares ✦
+          </div>
+          <br />
+          <button class="sobre-btn">✉ Click para abrir invitación</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <span class="nav-logo">Isabella · XV</span>
+      <ul class="nav-links">
+        <li><a href="#padres">Familia</a></li>
+        <li><a href="#countdown">Cuenta Regresiva</a></li>
+        <li><a href="#agenda">Itinerario</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+        <li><a href="#rsvp">Confirmar</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO (con pétalos integrados) -->
+    <section id="hero">
+      <div class="hero-petals-container"></div>
+      <div class="hero-content reveal">
+        <div class="hero-misquince">👑 &nbsp;mis</div>
+        <div class="hero-num">15</div>
+        <div class="hero-anos">años</div>
+        <div class="hero-name">Anna Isabella</div>
+        <p class="hero-quote">
+          "Hay momentos inolvidables que atesoro en mi corazón para siempre. Por
+          esa razón, quiero que compartas conmigo este día tan especial."
+        </p>
+      </div>
+      <div class="hero-banner-wrap">
+        <img
+          class="hero-banner"
+          src="img\FotoBanner.png"
+          alt="Anna Isabella - Mis 15 Años"
+          onerror="
+            this.src =
+              'https://placehold.co/800x1000/fce4ec/d4af37?text=Foto+Isabella'
+          "
+        />
+        <div class="hero-overlay"></div>
+      </div>
+    </section>
+
+    <!-- GOLD STRIPE -->
+    <div class="stripe">
+      ✦ &nbsp;Una noche de brillos y corazones contentos&nbsp; ✦
+    </div>
+
+    <!-- HONOR / PADRES -->
+    <section id="padres">
+      <img
+        src="img\icons\icono-acuarela-flor-rosa_24877-84005.avif"
+        class="section-icon"
+        alt=""
+      />
+      <div class="reveal">
+        <div class="section-label">Con el amor de</div>
+        <h2 class="section-title" style="text-align: center">Mi Familia</h2>
+        <div class="divider"></div>
+        <p class="padres-text">
+          Con la compañía de mis padres,<br />
+          <span class="padres-names"
+            >Reinaldo Jos&eacute Carrillo<br />
+            &amp; <br />Diana Carolina Rojas</span
+          >,<br />
+          y de mi hermano <br />
+          ,<span class="padres-names">Androusse Mateo Nakay</span><br />
+          te invito a celebrar con alegría este momento tan especial.<br /><br />
+          Con mucho amor, tu presencia ilumina esta noche que tanto hemos
+          soñado.
+        </p>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section id="countdown">
+      <img src="img\Hand.png" class="section-icon" alt="" />
+      <div class="reveal">
+        <div class="preparate-text">Prepárate porque faltan...</div>
+        <div class="countdown-grid">
+          <div class="cd-box">
+            <span class="cd-num" id="cd-days">00</span
+            ><span class="cd-label">Días</span>
+          </div>
+          <div class="cd-box">
+            <span class="cd-num" id="cd-hours">00</span
+            ><span class="cd-label">Horas</span>
+          </div>
+          <div class="cd-box">
+            <span class="cd-num" id="cd-mins">00</span
+            ><span class="cd-label">Minutos</span>
+          </div>
+          <div class="cd-box">
+            <span class="cd-num" id="cd-secs">00</span
+            ><span class="cd-label">Segundos</span>
+          </div>
+        </div>
+      </div>
+      <div class="petals-container"></div>
+    </section>
+
+    <!-- AGENDA -->
+    <section id="agenda">
+      <img src="img\icons\corona.png" class="section-icon" alt="" />
+      <div class="reveal" style="text-align: center; margin-bottom: 48px">
+        <div class="section-label">El programa</div>
+        <h2 class="section-title">Agenda de la Noche</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot">🌸</div>
+          <div class="tl-time">07:00 PM</div>
+          <div class="tl-event">Llegada de los Invitados</div>
+          <div class="tl-desc">Bienvenida y coctelería de apertura</div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot">👑</div>
+          <div class="tl-time">08:00 PM</div>
+          <div class="tl-event">Entrada de Isabella</div>
+          <div class="tl-desc">El momento más esperado de la noche</div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot">📸</div>
+          <div class="tl-time">09:00 PM</div>
+          <div class="tl-event">Sesión de Fotos</div>
+          <div class="tl-desc">Recuerdos que duran para siempre</div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot">🥂</div>
+          <div class="tl-time">09:30 PM</div>
+          <div class="tl-event">Cena · Brindis · Pastel</div>
+          <div class="tl-desc">Compartiendo la mesa con amor</div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot">💃</div>
+          <div class="tl-time">10:45 PM</div>
+          <div class="tl-event">¡A Bailar!</div>
+          <div class="tl-desc">Pista abierta para todos</div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot">🎉</div>
+          <div class="tl-time">12:00 AM</div>
+          <div class="tl-event">Hora Loca</div>
+          <div class="tl-desc">El cierre más divertido de la noche</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria">
+      <div class="reveal" style="text-align: center; margin-bottom: 40px">
+        <div class="section-label">Recuerdos</div>
+        <h2 class="section-title">Galería de Isabella</h2>
+        <div class="divider"></div>
+      </div>
+      <!-- CARRUSEL -->
+      <div class="carousel-container">
+        <div class="carousel-slides">
+          <div class="carousel-slide">
+            <img src="gallery\gallery-1.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-2.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-3.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-4.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-5.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-6.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-7.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-8.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-9.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-10.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-11.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-12.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-13.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-14.jpeg" alt="Foto" />
+          </div>
+          <div class="carousel-slide">
+            <img src="gallery\gallery-15.png" alt="Foto" />
+          </div>
+        </div>
+
+        <!-- Botones de navegación (opcionales pero recomendados) -->
+        <button class="carousel-btn prev" aria-label="Anterior">
+          &#10094;
+        </button>
+        <button class="carousel-btn next" aria-label="Siguiente">
+          &#10095;
+        </button>
+
+        <!-- Indicadores (puntos) -->
+        <div class="carousel-dots"></div>
+      </div>
+    </section>
+
+    <!-- UBICACION -->
+    <section id="ubicacion">
+      <img src="img\back.png" class="section-icon" alt="" />
+      <div class="reveal">
+        <div class="section-label" style="text-align: center">
+          ¿Dónde nos vemos?
+        </div>
+        <h2 class="section-title" style="text-align: center">El Lugar</h2>
+        <div class="divider"></div>
+        <div class="location-card">
+          <div class="loc-icon">🥂</div>
+          <div class="loc-name">Salón Social Zapán</div>
+          <div class="loc-addr">
+            Novaterra · Mosquera · Carrera 9 # 17-24 Sur
+          </div>
+          <div class="map-placeholder">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.861001187235!2d-74.23641472527427!3d4.694407941712622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f7792def2f9db%3A0x759f3fa08f804e02!2sZap%C3%A1n%20Novaterra%20Conjunto%20residencial!5e1!3m2!1ses-419!2sco!4v1779413267186!5m2!1ses-419!2sco"
+              width="100%"
+              height="200"
+              style="border: 0; border-radius: 12px"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+          <a
+            href="https://www.google.com/maps/search/Salón+Social+Zapán+Novaterra+Mosquera"
+            target="_blank"
+            class="btn-gold"
+            >📍 &nbsp;Cómo Llegar</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section id="dresscode">
+      <img
+        src="img\icons\flores-coloridas-decoracion-verano.avif"
+        class="section-icon"
+        alt=""
+      />
+      <div class="reveal">
+        <div class="section-label">Etiqueta</div>
+        <h2 class="section-title">Código de Vestimenta</h2>
+        <p
+          style="
+            font-family: var(--serif2);
+            font-style: italic;
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 36px;
+          "
+        >
+          Guapos y Divinas · Traje Formal y Cómodo
+        </p>
+        <div class="divider"></div>
+        <div class="dc-grid">
+          <div class="dc-card reveal">
+            <!-- <div class="dc-icon">👗</div> -->
+            <img src="img\icons\Dress ella.png" class="section-icon" alt="" />
+            <div class="dc-label">Damas</div>
+            <div class="dc-desc">
+              Vestido formal largo o cocktail.<br />Se permite el uso de tenis
+              cómodos.
+            </div>
+          </div>
+          <div class="dc-card reveal">
+            <!-- <div class="dc-icon">🤵</div> -->
+            <img
+              src="img\icons\Dress el.png"
+              class="section-icon"
+              alt=""
+              style="width: 25%; height: auto"
+            />
+            <div class="dc-label">Caballeros</div>
+            <div class="dc-desc">
+              Traje formal elegante.<br />Corbata opcional.
+            </div>
+          </div>
+        </div>
+        <div class="dc-alert reveal">
+          🌸 &nbsp;<strong>Nota importante:</strong><br />
+          El color <strong>Rosado</strong> será exclusivo para la quinceañera
+          esa noche.
+        </div>
+      </div>
+    </section>
+
+    <!-- REGALOS -->
+    <section id="regalos">
+      <img src="img\icons\frenteFloral.png" class="section-icon" alt="" />
+      <div class="reveal" style="text-align: center">
+        <div class="section-label">Un detalle especial</div>
+        <h2 class="section-title">Lluvia de Sobres</h2>
+        <div class="divider"></div>
+        <p class="regalo-text">
+          Con tu presencia y cariño ya me siento completamente afortunada.<br />Si
+          además deseas hacerme un detalle, puedes unirte a nuestra lluvia de
+          sobres. 💛
+        </p>
+        <div
+          class="sobre-animate"
+          onclick="
+            document.querySelector('.modal-overlay').classList.add('open')
+          "
+        >
+          💌
+        </div>
+        <br /><br />
+        <button
+          class="btn-gold"
+          onclick="
+            document.querySelector('.modal-overlay').classList.add('open')
+          "
+        >
+          📲 &nbsp;Transferencia por Nequi
+        </button>
+      </div>
+    </section>
+
+    <!-- MODAL NEQUI -->
+    <div
+      class="modal-overlay"
+      onclick="if (event.target === this) this.classList.remove('open');"
+    >
+      <div class="modal-box">
+        <button
+          class="modal-close"
+          onclick="
+            document.querySelector('.modal-overlay').classList.remove('open')
+          "
+        >
+          ✕
+        </button>
+
+        <!-- Aquí va la imagen QR -->
+        <div class="modal-qr">
+          <img
+            src="img/qr-nequi.png"
+            alt="Código QR de Nequi"
+            class="qr-image"
+          />
+        </div>
+
+        <div class="modal-title">Nequi</div>
+        <div class="modal-num">302 7300264</div>
+        <button class="btn-copy" onclick="copiarNequi()">
+          📋 &nbsp;Copiar número
+        </button>
+        <div id="copy-msg"></div>
+      </div>
+    </div>
+
+    <!-- RSVP -->
+    <section id="rsvp">
+      <img src="img\disneyBella.jpeg" class="section-icon" alt="" />
+      <div class="reveal">
+        <div class="section-label">Protocolo</div>
+        <h2 class="section-title">Confirma tu Asistencia</h2>
+        <p class="rsvp-text">
+          Quiero que esta noche sea perfecta… y tú eres parte de esa
+          perfección.<br />Así que confirma antes del
+          <strong style="color: var(--brown)">30 de Junio</strong>.
+        </p>
+        <!-- Botón que abre el modal -->
+        <!-- <button id="btn-abrir-modal-rsvp" class="btn-gold">
+          📋 &nbsp;Confirmar mi Asistencia
+        </button> -->
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSesgn3fGH7bxQRKk66Tzp0OdVSVt9PfZImA1SbOKo-t5vX5Rw/viewform?usp=header"
+          target="_blank"
+          class="btn-gold"
+          id="btn-abrir-externo"
+        >
+          📋 &nbsp;Confirmar mi Asistencia
+        </a>
+      </div>
+    </section>
+
+    <!-- MODAL DE GOOGLE FORMS (inicialmente oculto) -->
+    <!-- <div id="modal-googleform" class="modal-googleform">
+      <div class="modal-googleform-contenido">
+        <div class="modal-googleform-header">
+          <span class="modal-titulo">Confirmación de Asistencia</span>
+          <button class="modal-googleform-cerrar" id="btn-cerrar-modal-rsvp">
+            &times;
+          </button>
+        </div>
+        <div class="modal-googleform-cuerpo">
+          <iframe
+            id="iframe-googleform"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSesgn3fGH7bxQRKk66Tzp0OdVSVt9PfZImA1SbOKo-t5vX5Rw/viewform?embedded=true"
+            width="100%"
+            height="500"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >
+            Cargando…
+          </iframe>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- MEMORIAS -->
+    <section id="memorias">
+      <img src="img\icons\espaldaFloral.png" class="section-icon" alt="" />
+      <div class="reveal" style="text-align: center">
+        <div class="section-label">Comparte el momento 📸</div>
+        <h2 class="section-title">Memorias Compartidas</h2>
+        <div class="divider"></div>
+        <span>📸</span>
+        <p class="mem-text">
+          ¡Que los recuerdos no se queden solo en tu galería!<br />Comparte tus
+          fotos y videos de la fiesta en nuestro grupo.
+        </p>
+        <br /><br />
+        <div class="qr-frame">
+          ,<img
+            src="img\qr-google.png"
+            alt=""
+            style="margin: 70px 0px 70px 0px"
+          />
+        </div>
+        <br />
+        <a href="https://instagram.com/" target="_blank" class="btn-gold"
+          >📷 &nbsp;Ver en Instagram</a
+        >
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-name">Anna Isabella</div>
+      <div class="footer-sub">Mis 15 Años · 11 de Julio de 2026</div>
+      <div class="footer-hearts">♥ ♡ ♥</div>
+      <div style="font-size: 0.8rem; letter-spacing: 0.14em">
+        "Una noche de brillos y corazones contentos"
+      </div>
+    </footer>
+
+    <!-- AUDIO PLAYER -->
+    <div id="audio-player">
+      <div class="click-incentive">🔥 ¡Da click! 🔥</div>
+      <button id="play-btn" onclick="toggleAudio()">▶</button>
+      <div class="audio-info">
+        <div class="audio-track">Dancing Queen</div>
+        <div class="audio-artist">ABBA</div>
+      </div>
+      <div class="equalizer paused" id="eq">
+        <div class="eq-bar" style="height: 8px"></div>
+        <div class="eq-bar" style="height: 12px"></div>
+        <div class="eq-bar" style="height: 16px"></div>
+        <div class="eq-bar" style="height: 10px"></div>
+        <div class="eq-bar" style="height: 14px"></div>
+      </div>
+    </div>
+
+    <audio id="bg-audio" src="assets/ABBADancingQueen.mp3" loop></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
