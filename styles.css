@@ -1961,31 +1961,31 @@ footer::after {
   pointer-events: none;
   z-index: 999999;
   border-radius: 40%;
-  opacity: 0.2;
+  opacity: 0.1;
   animation: frostFloat 6s ease-out infinite;
   will-change: transform, opacity;
-  border: 2px solid rgba(150, 120, 80, 0.3);
+  border: 1px solid rgba(150, 120, 80, 0.3);
   background: transparent;
-  box-shadow: 0 0 4px rgba(200, 160, 100, 0.8), 0 0 2px rgba(100, 70, 40, 0.3);
+  box-shadow: 0 0 3px rgba(200, 160, 100, 0.8), 0 0 1.5px rgba(100, 70, 40, 0.3);
 }
 
 .frost-particle.small {
   width: 1px;
   height: 1px;
   background: #f5e6d3;
-  box-shadow: 0 0 4px rgba(200, 160, 100, 0.7), 0 0 1px rgba(100, 70, 40, 0.3);
+  box-shadow: 0 0 3px rgba(200, 160, 100, 0.7), 0 0 0.8px rgba(100, 70, 40, 0.3);
 }
 .frost-particle.medium {
   width: 3px;
   height: 3px;
   background: #f0dfc4;
-  box-shadow: 0 0 6px rgba(190, 145, 85, 0.6), 0 0 2px rgba(90, 60, 35, 0.25);
+  box-shadow: 0 0 5px rgba(190, 145, 85, 0.6), 0 0 1px rgba(90, 60, 35, 0.25);
 }
 .frost-particle.large {
   width: 5px;
   height: 5px;
   background: #ecd8b8;
-  box-shadow: 0 0 8px rgba(175, 130, 75, 0.5), 0 0 3px rgba(80, 55, 30, 0.2);
+  box-shadow: 0 0 7px rgba(175, 130, 75, 0.5), 0 0 2px rgba(80, 55, 30, 0.2);
 }
 
 @keyframes frostFloat {
@@ -1994,10 +1994,10 @@ footer::after {
     opacity: 0;
   }
   15% {
-    opacity: 0.9;
+    opacity: 0.8;
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.6;
     transform: translateY(-50vh) translateX(calc(20px * var(--dir, 0.5))) scale(1);
   }
   100% {
