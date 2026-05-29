@@ -25,13 +25,6 @@ function abrirInvitacion () {
       document.body.style.overflow = '';
     }, 1300);
   }
-  setTimeout (() => {
-    const audioPlayer = document.getElementById ('audio-player');
-    if (audioPlayer) audioPlayer.classList.add ('visible');
-  }, 1400);
-  document
-    .querySelectorAll ('.reveal')
-    .forEach (el => el.classList.add ('active'));
 }
 document.body.style.overflow = 'hidden';
 
@@ -294,69 +287,52 @@ document.addEventListener ('DOMContentLoaded', function () {
 });
 
 /* ── AUDIO ── */
-/* ===== AUDIO PLAYER (CORREGIDO) ===== */
-let audioPlaying = false;
-let audioAllowed = false;  // controla si el usuario ya interactuó
-
 const audio = document.getElementById('bg-audio');
 const playBtn = document.getElementById('play-btn');
 const eq = document.getElementById('eq');
 
-// Función principal de reproducción/pausa
+let isPlaying = false;
+
 function toggleAudio() {
   if (!audio) return;
 
-  if (audioPlaying) {
+  if (isPlaying) {
     // PAUSAR
     audio.pause();
     playBtn.textContent = '▶';
     if (eq) eq.classList.add('paused');
-    audioPlaying = false;
+    isPlaying = false;
   } else {
     // REPRODUCIR
-    // Importante: load() asegura que el audio esté listo
-    audio.load();
     const promise = audio.play();
     if (promise !== undefined) {
       promise.then(() => {
         playBtn.textContent = '⏸';
         if (eq) eq.classList.remove('paused');
-        audioPlaying = true;
-        audioAllowed = true;
+        isPlaying = true;
       }).catch(error => {
         console.log('Error al reproducir:', error);
-        // Si falla (por políticas del navegador), se muestra mensaje
-        alert('Toca de nuevo el botón para activar la música');
+        // Para móviles: a veces falla la primera vez, lo reintenta
+        setTimeout(() => {
+          audio.play().then(() => {
+            playBtn.textContent = '⏸';
+            if (eq) eq.classList.remove('paused');
+            isPlaying = true;
+          }).catch(() => {});
+        }, 100);
       });
     }
   }
 }
 
-// Eliminar cualquier autoplay automático: no iniciar música sin clic del usuario
-// Si quieres que la música empiece con el primer clic en cualquier parte (opcional), usa esto:
-function activarAudioConPrimerClick() {
-  if (!audioAllowed && audio && audio.paused) {
-    toggleAudio();  // intenta reproducir
-  }
-  document.body.removeEventListener('click', activarAudioConPrimerClick);
-  document.body.removeEventListener('touchstart', activarAudioConPrimerClick);
-}
-
-// Descomenta las siguientes líneas si quieres que la música empiece al primer clic en cualquier lugar
- document.body.addEventListener('click', activarAudioConPrimerClick);
- document.body.addEventListener('touchstart', activarAudioConPrimerClick);
-
-// Asegurar que el botón responda bien en móvil (sin necesidad de mantener presionado)
-playBtn.addEventListener('click', function(e) {
-  e.stopPropagation();  // evita que el clic se propague a otros elementos
-  toggleAudio();
-});
-// También para touchstart (por si acaso, pero no debería ser necesario)
-playBtn.addEventListener('touchstart', function(e) {
-  e.preventDefault();   // evita que se dispare el zoom o scroll
-  e.stopPropagation();
-  toggleAudio();
-});
+// Evento click (funciona en móviles y escritorio)
+playBtn.addEventListener('click', toggleAudio);
+// Para móviles: prevenir comportamientos no deseados (zoom, etc.)
+// playBtn.addEventListener('touchstart', function(e) {
+//   e.preventDefault();   // evita zoom, pero no impide el click
+//   // No llamamos a toggleAudio aquí porque el click ya lo hará
+//   // Solo aseguramos que el botón responda rápido
+// }, { passive: false });
 
 /* ── COPIAR NEQUI ── */
 function copiarNequi () {
