@@ -390,20 +390,20 @@ document.addEventListener ('DOMContentLoaded', function () {
 });
 
 /* ===== CORAZONES FLOTANTES EN RSVP ===== */
-(function() {
-  const rsvpBtn = document.querySelector('#rsvp .btn-gold');
+(function () {
+  const rsvpBtn = document.querySelector ('#rsvp .btn-gold');
   if (!rsvpBtn) return;
 
   // Puedes elegir entre "❤️" (corazón rojo), "🌸" (flor), "✨" (brillo), "💖" (corazón brillante)
   const symbols = ['❤️', '💖', '🌸', '✨', '💕', '💗'];
-  
+
   // Número de elementos flotantes por clic (entre 3 y 6)
   const minCount = 5;
   const maxCount = 10;
 
   // Función para crear un elemento flotante en una posición cercana al botón
-  function createFloatingElement(symbol, x, y) {
-    const el = document.createElement('div');
+  function createFloatingElement (symbol, x, y) {
+    const el = document.createElement ('div');
     el.textContent = symbol;
     // Usamos clase floating-heart (puedes cambiarla a floating-petal si quieres)
     el.className = 'floating-heart';
@@ -411,50 +411,52 @@ document.addEventListener ('DOMContentLoaded', function () {
     el.style.left = x + 'px';
     el.style.top = y + 'px';
     // Desplazamiento aleatorio horizontal para que se dispersen
-    const randomOffsetX = (Math.random() - 0.5) * 60;
-    el.style.setProperty('--offset-x', randomOffsetX + 'px');
+    const randomOffsetX = (Math.random () - 0.5) * 60;
+    el.style.setProperty ('--offset-x', randomOffsetX + 'px');
     // Añadimos una pequeña variación en la duración de la animación
-    const duration = 0.8 + Math.random() * 0.8;
+    const duration = 0.8 + Math.random () * 0.8;
     el.style.animationDuration = duration + 's';
     // Rotación inicial aleatoria
-    const randomRotate = (Math.random() - 0.5) * 40;
+    const randomRotate = (Math.random () - 0.5) * 40;
     el.style.transform = `rotate(${randomRotate}deg)`;
-    document.body.appendChild(el);
+    document.body.appendChild (el);
     // Eliminar después de la animación
-    setTimeout(() => el.remove(), duration * 1000);
+    setTimeout (() => el.remove (), duration * 1000);
   }
 
   // Función principal al hacer clic
-  function onRsvpClick(event) {
+  function onRsvpClick (event) {
     // Prevenir la redirección inmediata para que se vean los corazones
-    event.preventDefault();
-    
+    event.preventDefault ();
+
     // Obtener las coordenadas del botón en la ventana
-    const rect = rsvpBtn.getBoundingClientRect();
+    const rect = rsvpBtn.getBoundingClientRect ();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     // Número aleatorio de elementos
-    const count = Math.floor(Math.random() * (maxCount - minCount + 1)) + minCount;
-    
+    const count =
+      Math.floor (Math.random () * (maxCount - minCount + 1)) + minCount;
+
     for (let i = 0; i < count; i++) {
       // Elegir un símbolo al azar
-      const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+      const randomSymbol =
+        symbols[Math.floor (Math.random () * symbols.length)];
       // Desplazamiento aleatorio alrededor del centro del botón (dentro de un radio de 40px)
-      const offsetX = (Math.random() - 0.5) * 80;
-      const offsetY = (Math.random() - 0.5) * 60;
+      const offsetX = (Math.random () - 0.5) * 80;
+      const offsetY = (Math.random () - 0.5) * 60;
       const x = centerX + offsetX;
       const y = centerY + offsetY;
-      createFloatingElement(randomSymbol, x, y);
+      createFloatingElement (randomSymbol, x, y);
     }
-    
+
     // Esperar un momento (450ms) para que se vea la animación y luego redirigir
-    setTimeout(() => {
+    setTimeout (() => {
       // window.location.href = rsvpBtn.href;
-      window.open(rsvpBtn.href, '_blank');
+      window.open (rsvpBtn.href, '_blank');
     }, 1200);
   }
-  
+
   // Asignar el evento
-  rsvpBtn.addEventListener('click', onRsvpClick);
-})();
+  rsvpBtn.addEventListener ('click', onRsvpClick);
+}) ();

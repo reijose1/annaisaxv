@@ -116,7 +116,6 @@ body {
 }
 
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0);
@@ -279,11 +278,13 @@ body {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  background: linear-gradient(125deg,
-      #fff5f0 0%,
-      #fee9e4 35%,
-      #fce4e8 70%,
-      #fff0ea 100%);
+  background: linear-gradient(
+    125deg,
+    #fff5f0 0%,
+    #fee9e4 35%,
+    #fce4e8 70%,
+    #fff0ea 100%
+  );
   overflow: hidden;
 }
 
@@ -336,9 +337,11 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 70% 40%,
-      rgba(255, 220, 200, 0.15),
-      transparent 70%);
+  background: radial-gradient(
+    circle at 70% 40%,
+    rgba(255, 220, 200, 0.15),
+    transparent 70%
+  );
   pointer-events: none;
   border-radius: inherit;
 }
@@ -358,19 +361,22 @@ body {
 }
 
 .mini-crown {
-  width: 36px;          /* un poco más pequeño que 42px */
+  width: 36px;
+  /* un poco más pequeño que 42px */
   height: auto;
-  display: inline-block; /* para que fluya con el texto */
+  display: inline-block;
+  /* para que fluya con el texto */
   margin-right: 6px;
   /* Bordes suaves (redondeados pero no circulares) */
   border-radius: 30% 70% 70% 30% / 30% 35% 65% 70%;
   /* Transparencia muy sutil (solo 10% de opacidad menos) */
-  opacity: 0.9;  
+  opacity: 0.9;
   /* Sombra ligera para dar profundidad sin dureza */
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.05));
-  
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.05));
+
   /* Transición suave por si se anima */
-  transition: all 0.2s ease;  /* separación del texto "mis" */
+  transition: all 0.2s ease;
+  /* separación del texto "mis" */
   mix-blend-mode: multiply;
 }
 
@@ -448,15 +454,20 @@ body {
   /* Contenedor para el 15 y "años" en móvil */
   .hero-num {
     display: block;
-    text-align: center;       /* desplaza el 15 hacia la derecha */
-    margin-right: 10px;      /* separación del borde derecho (ajústalo) */
-    width: 50%;             /* ocupa todo el ancho */
+    text-align: center;
+    /* desplaza el 15 hacia la derecha */
+    margin-right: 10px;
+    /* separación del borde derecho (ajústalo) */
+    width: 50%;
+    /* ocupa todo el ancho */
   }
 
   .hero-anos {
     display: block;
-    text-align: left;        /* o center, pero lo dejamos a la izquierda */
-    margin-top: 7px;       /* ajusta la distancia con el 15 */
+    text-align: left;
+    /* o center, pero lo dejamos a la izquierda */
+    margin-top: 7px;
+    /* ajusta la distancia con el 15 */
     width: 20%;
   }
 
@@ -672,7 +683,7 @@ section {
 
 /* Línea vertical central */
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 0;
@@ -725,7 +736,8 @@ section {
 
 /* Posición del icono para items izquierda */
 .tl-item:nth-child(odd) .tl-dot {
-  right: -24px;   /* mitad del ancho del icono (48/2) */
+  right: -24px;
+  /* mitad del ancho del icono (48/2) */
   transform: translateX(50%);
 }
 
@@ -761,7 +773,7 @@ section {
 
 /* Limpiar floats */
 .timeline::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -943,10 +955,29 @@ section {
   display: inline-block;
   animation: sobrebounce 2s ease-in-out infinite;
   cursor: pointer;
+  text-align: center;
+  /* Asegura centrado */
+}
+
+/* SOBRE PARA EL NEQUI */
+.sobre-sello-img {
+  width: 100px;
+  /* Ajusta según el tamaño deseado (ejemplo) */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  pointer-events: none;
+  /* Para que el clic pase al div contenedor */
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+  transition: transform 0.2s ease;
+}
+
+/* Opcional: si quieres que la imagen también tenga un ligero efecto hover */
+.sobre-animate:hover .sobre-sello-img {
+  transform: scale(1.02);
 }
 
 @keyframes sobrebounce {
-
   0%,
   100% {
     transform: translateY(0) rotate(-5deg);
@@ -1106,13 +1137,17 @@ section {
 }
 
 #rsvp::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 200%;
   height: 200%;
   top: -50%;
   left: -50%;
-  background: radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+  background: radial-gradient(
+    circle at 30% 40%,
+    rgba(212, 175, 55, 0.05) 0%,
+    transparent 60%
+  );
   animation: slowRotate 20s linear infinite;
   pointer-events: none;
 }
@@ -1148,13 +1183,18 @@ section {
 }
 
 .btn-gold::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -60%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(115deg, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 90%);
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 10%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 90%
+  );
   transform: rotate(25deg);
   animation: shine 4s infinite;
 }
@@ -1265,14 +1305,15 @@ section {
 /* ===== FOOTER  ===== */
 footer {
   position: relative;
-  background: linear-gradient(145deg, #FFF5F0 0%, #FEE9E4 50%, #FFF0F0 100%);
-  color: #A86F5A; /* rosa-marrón suave, elegante */
+  background: linear-gradient(145deg, #fff5f0 0%, #fee9e4 50%, #fff0f0 100%);
+  color: #a86f5a;
+  /* rosa-marrón suave, elegante */
   text-align: center;
   padding: 3rem 1.5rem 2.5rem;
   overflow: hidden;
   border-top: 2px solid rgba(212, 175, 55, 0.4);
   box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.02);
-  font-family: var(--sans, 'Montserrat', sans-serif);
+  font-family: var(--sans, "Montserrat", sans-serif);
 }
 
 /* Pequeña decoración superior (línea dorada con puntos) */
@@ -1283,7 +1324,12 @@ footer {
   transform: translateX(-50%);
   width: 120px;
   height: 4px;
-  background: linear-gradient(90deg, transparent, var(--gold, #d4af37), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold, #d4af37),
+    transparent
+  );
   border-radius: 4px;
 }
 
@@ -1294,11 +1340,12 @@ footer {
 }
 
 .footer-name {
-  font-family: var(--serif, 'Playfair Display', serif);
+  font-family: var(--serif, "Playfair Display", serif);
   font-style: italic;
   font-size: 2.5rem;
   font-weight: 600;
-  color: #C28B6E; /* coral rosado */
+  color: #c28b6e;
+  /* coral rosado */
   margin-bottom: 0.8rem;
   letter-spacing: 1px;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
@@ -1315,7 +1362,8 @@ footer {
   font-size: 1rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #D4A373; /* dorado pálido */
+  color: #d4a373;
+  /* dorado pálido */
   margin-bottom: 1rem;
   font-weight: 500;
   word-spacing: 0.2em;
@@ -1332,21 +1380,32 @@ footer {
 
 .heart {
   display: inline-block;
-  color: #E8A0A0; /* rosa coral */
+  color: #e8a0a0;
+  /* rosa coral */
   animation: heartGlow 2s ease-in-out infinite;
   transition: all 0.2s;
 }
 
-.heart:nth-child(1) { animation-delay: 0s; }
-.heart:nth-child(2) { animation-delay: 0.3s; }
-.heart:nth-child(3) { animation-delay: 0.6s; }
+.heart:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.heart:nth-child(3) {
+  animation-delay: 0.6s;
+}
 
 @keyframes heartGlow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.6;
     transform: scale(1);
     text-shadow: 0 0 0px rgba(212, 175, 55, 0);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.15);
@@ -1356,11 +1415,11 @@ footer {
 }
 
 .footer-quote {
-  font-family: var(--serif2, 'Cormorant Garamond', serif);
+  font-family: var(--serif2, "Cormorant Garamond", serif);
   font-style: italic;
   font-size: 1.2rem;
   letter-spacing: 0.15em;
-  color: #C9A27C;
+  color: #c9a27c;
   margin-top: 1rem;
   padding-top: 0.5rem;
   border-top: 1px solid rgba(212, 175, 55, 0.2);
@@ -1372,18 +1431,22 @@ footer {
   footer {
     padding: 2rem 1rem 1.8rem;
   }
+
   .footer-name {
     font-size: 2rem;
   }
+
   .footer-sub {
     font-size: 0.7rem;
     letter-spacing: 0.2em;
   }
+
   .footer-hearts {
     font-size: 1.4rem;
     gap: 0.5rem;
     letter-spacing: 6px;
   }
+
   .footer-quote {
     font-size: 1rem;
   }
@@ -1413,13 +1476,27 @@ footer::after {
 }
 
 @keyframes floatPetal {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
-  100% { transform: translateY(-30px) rotate(20deg); opacity: 0; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateY(-30px) rotate(20deg);
+    opacity: 0;
+  }
 }
 
 @keyframes sparkle {
-  0% { opacity: 0.1; transform: scale(0.8); }
-  100% { opacity: 0.4; transform: scale(1.2); }
+  0% {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
 }
 
 /* GALERIA */
@@ -1458,12 +1535,16 @@ footer::after {
 .carousel-container {
   position: relative;
   width: 90%;
-  max-width: 420px;          /* más reducido que antes (500px → 420px) */
+  max-width: 420px;
+  /* más reducido que antes (500px → 420px) */
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 20px;       /* esquinas suaves */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06); /* sombra más ligera */
-  border: 1px solid rgba(212, 175, 55, 0.3);  /* borde dorado sutil */
+  border-radius: 20px;
+  /* esquinas suaves */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  /* sombra más ligera */
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  /* borde dorado sutil */
   transition: all 0.3s ease;
 }
 
@@ -1491,12 +1572,14 @@ footer::after {
 
 .carousel-slides {
   display: flex;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* transición más suave */
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* transición más suave */
 }
 
 .carousel-slide {
   flex: 0 0 100%;
-  aspect-ratio: 3 / 4;       /* mantiene proporción vertical */
+  aspect-ratio: 3 / 4;
+  /* mantiene proporción vertical */
 }
 
 .carousel-slide img {
@@ -1504,9 +1587,12 @@ footer::after {
   height: 100%;
   object-fit: cover;
   display: block;
-  background: #f9f5f0;       /* fondo suave mientras carga */
-  opacity: 0.8;   /* o el valor que prefieras: 0.9, 0.95, etc. */
-  transition: opacity 0.3s ease; /* suaviza el cambio */
+  background: #f9f5f0;
+  /* fondo suave mientras carga */
+  opacity: 0.8;
+  /* o el valor que prefieras: 0.9, 0.95, etc. */
+  transition: opacity 0.3s ease;
+  /* suaviza el cambio */
 }
 
 /* Opcional: al pasar el ratón recupera opacidad total (efecto de enfoque) */
@@ -1519,7 +1605,8 @@ footer::after {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 250, 240, 0.7);  /* fondo claro semi-transparente */
+  background: rgba(255, 250, 240, 0.7);
+  /* fondo claro semi-transparente */
   backdrop-filter: blur(4px);
   color: var(--gold);
   border: 1px solid rgba(212, 175, 55, 0.5);
@@ -1555,7 +1642,11 @@ footer::after {
 .carousel-dots {
   text-align: center;
   padding: 10px 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -1573,7 +1664,7 @@ footer::after {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 .dot.active {
@@ -1591,20 +1682,25 @@ footer::after {
     height: 30px;
     font-size: 1.2rem;
   }
+
   .prev {
     left: 8px;
   }
+
   .next {
     right: 8px;
   }
+
   .carousel-dots {
     padding: 6px 0;
     gap: 6px;
   }
+
   .dot {
     width: 6px;
     height: 6px;
   }
+
   .dot.active {
     width: 9px;
     height: 9px;
@@ -1718,7 +1814,6 @@ footer::after {
 }
 
 @keyframes eqbar {
-
   0%,
   100% {
     transform: scaleY(1);
