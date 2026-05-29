@@ -1505,7 +1505,7 @@ footer::after {
   object-fit: cover;
   display: block;
   background: #f9f5f0;       /* fondo suave mientras carga */
-  opacity: 0.9;   /* o el valor que prefieras: 0.9, 0.95, etc. */
+  opacity: 0.8;   /* o el valor que prefieras: 0.9, 0.95, etc. */
   transition: opacity 0.3s ease; /* suaviza el cambio */
 }
 
