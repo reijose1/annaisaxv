@@ -28,23 +28,6 @@ function abrirInvitacion () {
 }
 document.body.style.overflow = 'hidden';
 
-// ===== MENÚ HAMBURGUESA PARA MÓVILES =====
-document.addEventListener ('DOMContentLoaded', function () {
-  const toggleBtn = document.querySelector ('.menu-toggle');
-  const navLinks = document.querySelector ('.nav-links');
-  if (toggleBtn && navLinks) {
-    toggleBtn.addEventListener ('click', function () {
-      navLinks.classList.toggle ('active');
-    });
-    // Cerrar el menú al hacer clic en un enlace
-    navLinks.querySelectorAll ('a').forEach (link => {
-      link.addEventListener ('click', () => {
-        navLinks.classList.remove ('active');
-      });
-    });
-  }
-});
-
 /* ── COUNTDOWN ── */
 function updateCountdown () {
   const target = new Date ('2026-07-11T19:00:00-05:00');
@@ -558,3 +541,20 @@ document.addEventListener ('DOMContentLoaded', function () {
     init ();
   }
 }) ();
+
+// ===== MENÚ HAMBURGUESA PARA MÓVILES =====
+document.addEventListener ('DOMContentLoaded', function () {
+  const toggleBtn = document.querySelector ('.menu-toggle');
+  const navLinks = document.querySelector ('.nav-links');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener ('click', function () {
+      navLinks.classList.toggle ('active');
+    });
+    // Cerrar el menú al hacer clic en un enlace
+    navLinks.querySelectorAll ('a').forEach (link => {
+      link.addEventListener ('click', () => {
+        navLinks.classList.remove ('active');
+      });
+    });
+  }
+});
