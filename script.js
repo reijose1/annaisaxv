@@ -465,7 +465,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function init() {
     console.log("Iniciando generador de destellos escarcha");
     const MAX_PARTICLES = 30;
-    const GENERATION_INTERVAL = 1800;
+    const GENERATION_INTERVAL = 2500;
     let activeCount = 0;
 
     function createParticle() {
