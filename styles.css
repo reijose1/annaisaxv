@@ -218,90 +218,136 @@ body {
   }
 }
 
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 #navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 5%;
-  background: rgba(255, 253, 250, 0.88);
+  background: rgba(255, 253, 250, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(244, 194, 194, 0.35);
-  transition: box-shadow 0.3s;
+  border-bottom: 1px solid rgba(244, 194, 194, 0.4);
+  transition:
+    box-shadow 0.3s,
+    background 0.3s;
 }
 
+/* Efecto al hacer scroll */
 #navbar.scrolled {
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.12);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+  background: rgba(255, 253, 250, 0.98);
 }
 
+/* Logo */
 .nav-logo {
-  font-family: var(--serif);
+  font-family: var(--serif, "Playfair Display", serif);
   font-style: italic;
-  color: var(--brown);
-  font-size: 1.1rem;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--dark);
-  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #b87c5a;
+  letter-spacing: 0.5px;
   transition: color 0.2s;
 }
 
-.nav-links a:hover {
-  color: var(--gold);
+/* Lista de enlaces (escritorio) */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Ocultar botón en desktop */
+.nav-links li a {
+  font-family: var(--sans, "Montserrat", sans-serif);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5a3e2e;
+  text-decoration: none;
+  transition:
+    color 0.2s,
+    border-bottom 0.2s;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links li a:hover {
+  color: var(--gold, #d4af37);
+  border-bottom-color: var(--gold, #d4af37);
+}
+
+/* Botón hamburguesa (oculto en escritorio) */
 .menu-toggle {
   display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #b87c5a;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background 0.2s;
 }
 
+.menu-toggle:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* ===== RESPONSIVE: MÓVILES ===== */
 @media (max-width: 640px) {
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: #b87c5a;
-    cursor: pointer;
-    z-index: 101;
+  #navbar {
+    padding: 10px 5%;
   }
+
+  .nav-logo {
+    font-size: 1rem;
+  }
+
+  /* Mostrar botón hamburguesa */
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Menú desplegable */
   .nav-links {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(255, 253, 250, 0.96);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 253, 250, 0.97);
+    backdrop-filter: blur(16px);
     flex-direction: column;
-    text-align: center;
-    padding: 20px 0;
-    gap: 16px;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
     border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    z-index: 99;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    z-index: 999;
   }
+
+  /* Clase activa (toggle por JS) */
   .nav-links.active {
     display: flex;
   }
+
   .nav-links li a {
     font-size: 0.9rem;
-    padding: 8px;
-    display: block;
+    letter-spacing: 0.2em;
+    padding: 6px 12px;
+    display: inline-block;
   }
 }
 
