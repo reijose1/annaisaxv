@@ -951,7 +951,7 @@ section {
 }
 
 .sobre-animate {
-  font-size: 4rem;
+  font-size: 3rem;
   display: inline-block;
   animation: sobrebounce 2s ease-in-out infinite;
   cursor: pointer;
@@ -961,7 +961,7 @@ section {
 
 /* SOBRE PARA EL NEQUI */
 .sobre-sello-img {
-  width: 100px;
+  width: 80px;
   /* Ajusta según el tamaño deseado (ejemplo) */
   height: auto;
   display: block;
