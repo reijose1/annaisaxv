@@ -543,18 +543,22 @@ document.addEventListener ('DOMContentLoaded', function () {
 }) ();
 
 // ===== MENÚ HAMBURGUESA PARA MÓVILES =====
-document.addEventListener ('DOMContentLoaded', function () {
-  const toggleBtn = document.querySelector ('.menu-toggle');
-  const navLinks = document.querySelector ('.nav-links');
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
   if (toggleBtn && navLinks) {
-    toggleBtn.addEventListener ('click', function () {
-      navLinks.classList.toggle ('active');
+    toggleBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+      console.log('Menú toggled'); // Para depurar
     });
-    // Cerrar el menú al hacer clic en un enlace
-    navLinks.querySelectorAll ('a').forEach (link => {
-      link.addEventListener ('click', () => {
-        navLinks.classList.remove ('active');
+    // Cerrar al hacer clic en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
       });
     });
+  } else {
+    console.log('No se encontró el botón o el menú');
   }
 });

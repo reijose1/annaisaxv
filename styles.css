@@ -265,31 +265,12 @@ body {
   color: var(--gold);
 }
 
+/* Ocultar botón en desktop */
+.menu-toggle {
+  display: none;
+}
+
 @media (max-width: 640px) {
-  .nav-links {
-    display: none; /* se oculta por defecto */
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 248, 240, 0.98);
-    backdrop-filter: blur(12px);
-    flex-direction: column;
-    text-align: center;
-    padding: 20px 0;
-    gap: 16px;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    z-index: 99;
-  }
-  .nav-links.active {
-    display: flex; /* se muestra al activar */
-  }
-  .nav-links li a {
-    font-size: 0.9rem;
-    padding: 8px;
-    display: block;
-  }
-  /* Botón hamburguesa */
   .menu-toggle {
     display: block;
     background: none;
@@ -299,10 +280,29 @@ body {
     cursor: pointer;
     z-index: 101;
   }
-}
-/* Por defecto en desktop, ocultar botón hamburguesa */
-.menu-toggle {
-  display: none;
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 253, 250, 0.96);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    gap: 16px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    z-index: 99;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-links li a {
+    font-size: 0.9rem;
+    padding: 8px;
+    display: block;
+  }
 }
 
 /* HERO - UNIFICADA con gradiente suave y pétalos */
