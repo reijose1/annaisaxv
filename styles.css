@@ -303,7 +303,7 @@ body {
 }
 
 /* ===== RESPONSIVE: MÓVILES ===== */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   #navbar {
     padding: 10px 5%;
   }
