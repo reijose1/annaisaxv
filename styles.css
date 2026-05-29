@@ -1308,7 +1308,7 @@ section {
 footer {
   position: relative;
   background: linear-gradient(145deg, #fff5f0 0%, #fee9e4 50%, #fff0f0 100%);
-  color: #a86f5a;
+  color: #8b5a4b;
   /* rosa-marrón suave, elegante */
   text-align: center;
   padding: 3rem 1.5rem 2.5rem;
@@ -1346,7 +1346,7 @@ footer {
   font-style: italic;
   font-size: 2.5rem;
   font-weight: 600;
-  color: #c28b6e;
+  color: #a06548;
   /* coral rosado */
   margin-bottom: 0.8rem;
   letter-spacing: 1px;
@@ -1364,7 +1364,7 @@ footer {
   font-size: 1rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #d4a373;
+  color: #b87c4a;
   /* dorado pálido */
   margin-bottom: 1rem;
   font-weight: 500;
@@ -1421,7 +1421,7 @@ footer {
   font-style: italic;
   font-size: 1.2rem;
   letter-spacing: 0.15em;
-  color: #c9a27c;
+  color: #b07a52;
   margin-top: 1rem;
   padding-top: 0.5rem;
   border-top: 1px solid rgba(212, 175, 55, 0.2);
@@ -1450,7 +1450,9 @@ footer {
   }
 
   .footer-quote {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;  /* reducido para mejor lectura */
+    padding: 0 12px;
   }
 }
 
