@@ -1854,6 +1854,13 @@ footer::after {
   line-height: 1.2;
 }
 
+.audio-message{
+  font-size: 0.75rem;
+  color: var(--brown);
+  font-family: var(--sans);
+  font-style: italic;
+}
+
 .audio-track {
   font-size: 0.7rem;
   color: var(--brown);
