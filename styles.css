@@ -1743,18 +1743,19 @@ footer::after {
 }
 
 #play-btn {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--gold), var(--gold-l));
   border: none;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s;
+  touch-action: manipulation; /* mejora el tacto */
 }
 
 #play-btn:hover {

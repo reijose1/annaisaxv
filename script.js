@@ -32,6 +32,20 @@ function abrirInvitacion () {
   document
     .querySelectorAll ('.reveal')
     .forEach (el => el.classList.add ('active'));
+
+  // Intenta activar el audio de forma silenciosa al abrir
+  setTimeout (() => {
+    const audio = document.getElementById ('bg-audio');
+    if (audio && audio.paused) {
+      audio.muted = true;
+      audio
+        .play ()
+        .then (() => {
+          audio.muted = false; // Si suena, bien; si no, el usuario tendrá que tocar el botón
+        })
+        .catch (e => console.log ('Audio no iniciado automáticamente'));
+    }
+  }, 500);
 }
 document.body.style.overflow = 'hidden';
 
@@ -295,34 +309,52 @@ document.addEventListener ('DOMContentLoaded', function () {
 
 /* ── AUDIO ── */
 let playing = false;
+
+const playBtn = document.getElementById ('play-btn');
+playBtn.addEventListener ('click', toggleAudio);
+playBtn.addEventListener ('touchstart', toggleAudio);
+
 function toggleAudio () {
   const audio = document.getElementById ('bg-audio');
   const btn = document.getElementById ('play-btn');
   const eq = document.getElementById ('eq');
   if (!audio) return;
+
   if (playing) {
     audio.pause ();
     btn.textContent = '▶';
     if (eq) eq.classList.add ('paused');
+    playing = false;
   } else {
-    audio.play ().catch (e => console.log ('Autoplay bloqueado:', e));
-    btn.textContent = '⏸';
-    if (eq) eq.classList.remove ('paused');
+    // En móviles, a veces hay que recargar el audio si falló la primera vez
+    audio
+      .play ()
+      .then (() => {
+        btn.textContent = '⏸';
+        if (eq) eq.classList.remove ('paused');
+        playing = true;
+      })
+      .catch (error => {
+        console.log ('Error al reproducir:', error);
+        // Opcional: mostrar un mensaje al usuario
+        alert (
+          'Para escuchar la música, toca de nuevo el botón después de interactuar con la página.'
+        );
+      });
   }
-  playing = !playing;
 }
 
 // Intento de autoplay silencioso al principio
-const audioEl = document.getElementById ('bg-audio');
-if (audioEl) {
-  audioEl.muted = true;
-  audioEl
-    .play ()
-    .then (() => {
-      audioEl.muted = false;
-    })
-    .catch (() => {});
-}
+// const audioEl = document.getElementById ('bg-audio');
+// if (audioEl) {
+//   audioEl.muted = true;
+//   audioEl
+//     .play ()
+//     .then (() => {
+//       audioEl.muted = false;
+//     })
+//     .catch (() => {});
+// }
 
 /* ── COPIAR NEQUI ── */
 function copiarNequi () {
