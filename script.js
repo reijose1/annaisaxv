@@ -32,20 +32,6 @@ function abrirInvitacion () {
   document
     .querySelectorAll ('.reveal')
     .forEach (el => el.classList.add ('active'));
-
-  // Intenta activar el audio de forma silenciosa al abrir
-  setTimeout (() => {
-    const audio = document.getElementById ('bg-audio');
-    if (audio && audio.paused) {
-      audio.muted = true;
-      audio
-        .play ()
-        .then (() => {
-          audio.muted = false; // Si suena, bien; si no, el usuario tendrá que tocar el botón
-        })
-        .catch (e => console.log ('Audio no iniciado automáticamente'));
-    }
-  }, 500);
 }
 document.body.style.overflow = 'hidden';
 
@@ -308,53 +294,69 @@ document.addEventListener ('DOMContentLoaded', function () {
 });
 
 /* ── AUDIO ── */
-let playing = false;
+/* ===== AUDIO PLAYER (CORREGIDO) ===== */
+let audioPlaying = false;
+let audioAllowed = false;  // controla si el usuario ya interactuó
 
-const playBtn = document.getElementById ('play-btn');
-playBtn.addEventListener ('click', toggleAudio);
-playBtn.addEventListener ('touchstart', toggleAudio);
+const audio = document.getElementById('bg-audio');
+const playBtn = document.getElementById('play-btn');
+const eq = document.getElementById('eq');
 
-function toggleAudio () {
-  const audio = document.getElementById ('bg-audio');
-  const btn = document.getElementById ('play-btn');
-  const eq = document.getElementById ('eq');
+// Función principal de reproducción/pausa
+function toggleAudio() {
   if (!audio) return;
 
-  if (playing) {
-    audio.pause ();
-    btn.textContent = '▶';
-    if (eq) eq.classList.add ('paused');
-    playing = false;
+  if (audioPlaying) {
+    // PAUSAR
+    audio.pause();
+    playBtn.textContent = '▶';
+    if (eq) eq.classList.add('paused');
+    audioPlaying = false;
   } else {
-    // En móviles, a veces hay que recargar el audio si falló la primera vez
-    audio
-      .play ()
-      .then (() => {
-        btn.textContent = '⏸';
-        if (eq) eq.classList.remove ('paused');
-        playing = true;
-      })
-      .catch (error => {
-        console.log ('Error al reproducir:', error);
-        // Opcional: mostrar un mensaje al usuario
-        alert (
-          'Para escuchar la música, toca de nuevo el botón después de interactuar con la página.'
-        );
+    // REPRODUCIR
+    // Importante: load() asegura que el audio esté listo
+    audio.load();
+    const promise = audio.play();
+    if (promise !== undefined) {
+      promise.then(() => {
+        playBtn.textContent = '⏸';
+        if (eq) eq.classList.remove('paused');
+        audioPlaying = true;
+        audioAllowed = true;
+      }).catch(error => {
+        console.log('Error al reproducir:', error);
+        // Si falla (por políticas del navegador), se muestra mensaje
+        alert('Toca de nuevo el botón para activar la música');
       });
+    }
   }
 }
 
-// Intento de autoplay silencioso al principio
-// const audioEl = document.getElementById ('bg-audio');
-// if (audioEl) {
-//   audioEl.muted = true;
-//   audioEl
-//     .play ()
-//     .then (() => {
-//       audioEl.muted = false;
-//     })
-//     .catch (() => {});
-// }
+// Eliminar cualquier autoplay automático: no iniciar música sin clic del usuario
+// Si quieres que la música empiece con el primer clic en cualquier parte (opcional), usa esto:
+function activarAudioConPrimerClick() {
+  if (!audioAllowed && audio && audio.paused) {
+    toggleAudio();  // intenta reproducir
+  }
+  document.body.removeEventListener('click', activarAudioConPrimerClick);
+  document.body.removeEventListener('touchstart', activarAudioConPrimerClick);
+}
+
+// Descomenta las siguientes líneas si quieres que la música empiece al primer clic en cualquier lugar
+ document.body.addEventListener('click', activarAudioConPrimerClick);
+ document.body.addEventListener('touchstart', activarAudioConPrimerClick);
+
+// Asegurar que el botón responda bien en móvil (sin necesidad de mantener presionado)
+playBtn.addEventListener('click', function(e) {
+  e.stopPropagation();  // evita que el clic se propague a otros elementos
+  toggleAudio();
+});
+// También para touchstart (por si acaso, pero no debería ser necesario)
+playBtn.addEventListener('touchstart', function(e) {
+  e.preventDefault();   // evita que se dispare el zoom o scroll
+  e.stopPropagation();
+  toggleAudio();
+});
 
 /* ── COPIAR NEQUI ── */
 function copiarNequi () {

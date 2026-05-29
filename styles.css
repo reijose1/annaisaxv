@@ -1762,6 +1762,10 @@ footer::after {
   transform: scale(1.1);
 }
 
+#play-btn:active {
+  transform: scale(0.96);  /* feedback visual al tocar */
+}
+
 .audio-info {
   line-height: 1.2;
 }
